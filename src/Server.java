@@ -2,6 +2,8 @@ import org.apache.poi.hssf.usermodel.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -18,7 +20,7 @@ import java.io.IOException;
  */
 
 public class Server {
-    private String FTPADDR = "localhost";
+    static String FTPADDR = "localhost";
     static JTable table;
     static JTextArea log;
 
@@ -26,7 +28,7 @@ public class Server {
         new Server();
     }
 
-    private Server() {
+    private Server() throws IOException {
         EventQueue.invokeLater(() -> {
             try {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -48,14 +50,12 @@ public class Server {
         HSSFCell name = row.createCell((short) 0);
         HSSFRichTextString rts = new HSSFRichTextString("CHELEN");
         name.setCellValue(rts);
-        sheet.autoSizeColumn((short) 30);
-        try {
-            FileOutputStream fos = new FileOutputStream("database.xls");
-            workbook.write(fos);
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        sheet.autoSizeColumn((short) 20);
+        FileOutputStream fos = new FileOutputStream("database.xls");
+        workbook.write(fos);
+        fos.close();
+        workbook = new HSSFWorkbook(new FileInputStream("database.xls"));
+        sheet = workbook.getSheetAt(0);
 
     }
 }

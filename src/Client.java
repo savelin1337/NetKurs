@@ -25,7 +25,7 @@ import java.net.Socket;
  * для которых производились операции редактирования, добавления и пометки на удаление.
  */
 
-public class Server {
+public class Client {
     static String FTPADDR = "localhost";
     static JTable table;
     static JTextArea log;
@@ -35,7 +35,7 @@ public class Server {
     int port = 0;
 
     public static void main(String[] args) throws IOException {
-        new Server();
+        new Client();
     }
 
     void readXML(String filename) {
@@ -105,7 +105,7 @@ public class Server {
 
     }
 
-    private Server() throws IOException {
+    private Client() throws IOException {
         EventQueue.invokeLater(() -> {
             try {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());

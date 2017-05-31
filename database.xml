@@ -1,0 +1,21 @@
+<?xml version = "1.0"?>
+<table>
+    <row id="0">
+        <firstname>Dmitriy</firstname>
+        <lastname>Savelin</lastname>
+        <nickname>kr4m</nickname>
+        <game>CS:GO</game>
+    </row>
+    <row id="1">
+        <firstname>Dmitriy</firstname>
+        <lastname>Kazakov</lastname>
+        <nickname>Dimas</nickname>
+        <game>FIFA</game>
+    </row>
+    <row id="2">
+        <firstname>Kirill</firstname>
+        <lastname>Pechenkin</lastname>
+        <nickname>Kirya</nickname>
+        <game>Dota 2</game>
+    </row>
+</table>
